@@ -1,0 +1,5 @@
+Nicola
+Polito
+314590
+nicola.polito@studenti.unipg.it
+Python 3.9.2
