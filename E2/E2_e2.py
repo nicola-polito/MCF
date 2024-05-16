@@ -3,16 +3,12 @@
 
 def calcola_somma_n():
     sum=0
-    n=''
-    print(sum)
-    print('Inserire un numero:')
-    num = input(n)
+    num = input('Inserire un numero:')
     controllo= num.find('.')
     print(type(controllo))
     while (controllo > 0):
         print('Valore non valido ! ')
-        print('Riprova:')
-        num=input(n)
+        num=input('Riprova!:')
         controllo= num.find('.')
         
     N = int(num)

@@ -9,7 +9,7 @@ def calcola_giorni(year_date):
     sum=0
     etc=2
     for i in range(abs(datenow.year - year_date), 0, -1):
-        etc=etc+1
+        etc+=1
         if(etc==4):
             sum = sum + 366
             etc=0
@@ -18,25 +18,21 @@ def calcola_giorni(year_date):
     return sum
 
 def calcola_eta(dt):
-    bd=''
-    print('Inserisci la data di nascita in fmt g-m-y h:m:s:')
-    birthday=input(bd)
-    mydate= datetime.strptime(birthday, "%d-%m-%Y %H:%M:%S")
+    bd= input('Inserisci la data di nascita in fmt g-m-y h:m:s:')
+    mydate= datetime.strptime(bd, "%d-%m-%Y %H:%M:%S")
     print('\n')
     print(mydate)
     datenow=datetime.now()
     time_diff= datenow-mydate
     print(datenow, '\n')
     until_days = calcola_giorni(mydate.year)
-    last_days= calcola_giorni(2024)
-    print(last_days)
     print(time_diff.days)
     print(until_days)
     yr= datenow.year -mydate.year
-    if (mydate.month > datenow.month):
+    if (mydate.month > datenow.month) or ( datenow.month == mydate.month and datenow.day < mydate.day): # or correzione prof
         yr = yr - 1
         
-    dt.update({'years':yr, 'days':(last_days-(until_days-time_diff.days)) , 'seconds':time_diff.seconds})
+    dt.update({'years':yr, 'days':(abs(until_days-time_diff.days)), 'seconds':time_diff.seconds})
 
 eta={'years': 1, 'days':1, 'seconds': 1}
 calcola_eta(eta)

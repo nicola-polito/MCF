@@ -17,11 +17,11 @@ while(t<31):
     if(s==len(week)-1):
         s=0
     else:
-        s=s+1
-    t=t+1
-print(october_week)
-print(len(october_week))
-print('\n')
+        s+=1
+    t+=1
+#print(october_week)
+#print(len(october_week))
+print('n')
 
 g=range(1, 32)
 october={}
