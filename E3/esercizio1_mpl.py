@@ -16,7 +16,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# PARTE 1: creare dataframe per pgni località
+# PARTE 1: creare dataframe per ogni località
 #funzioni
 def costruisci_tab(g, m, M, med):
     data = pd.DataFrame(columns = ['Data','Minima(°C)', 'Massima(°C)', 'Media(°C)'])
@@ -152,7 +152,8 @@ for i in range(0, 3):
     ax[i].set_xlim(-1, 7)
     ax[i].set_ylim(5, 32)
     ax[i].grid(True)
-plt.show()
+plt.savefig('Perugia_3Bm.png')
+#plt.show()
 
 #Palermo
 fig, ax = plt.subplots(1, 3, figsize=(15, 4)) 
@@ -173,7 +174,8 @@ for i in range(0, 3):
     ax[i].set_xlim(-1, 7)
     ax[i].set_ylim(5, 32)
     ax[i].grid(True)
-plt.show()
+plt.savefig('Palermo_3Bm.png')
+#plt.show()
 
 #Padova
 fig, ax = plt.subplots(1, 3, figsize=(15, 4)) 
@@ -194,7 +196,8 @@ for i in range(0, 3):
     ax[i].set_xlim(-1, 7)
     ax[i].set_ylim(5, 32)
     ax[i].grid(True)
-plt.show()
+plt.savefig('Padova_3Bm.png')
+#plt.show()
 
 
 #PARTE 3: 2° grafico
@@ -210,7 +213,8 @@ plt.ylabel('°C')
 plt.xticks(fontsize= 10)
 plt.yticks(fontsize=10)
 plt.legend(fontsize= 12)
-plt.show()
+plt.savefig('all_min.png')
+#plt.show()
 
 #Massime
 fig, ax = plt.subplots( figsize=(10, 5) )
@@ -223,7 +227,8 @@ plt.ylabel('°C')
 plt.xticks(fontsize= 10)
 plt.yticks(fontsize=10)
 plt.legend(fontsize= 12)
-plt.show()
+plt.savefig('all_max.png')
+#plt.show()
 
 #Medie
 fig, ax = plt.subplots( figsize=(10, 5) )
@@ -236,7 +241,8 @@ plt.ylabel('°C')
 plt.xticks(fontsize= 10)
 plt.yticks(fontsize=10)
 plt.legend(fontsize= 12)
-plt.show()
+plt.savefig('all_mean.png')
+#plt.show()
 
 
 

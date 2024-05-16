@@ -68,4 +68,7 @@ ax4.legend(fontsize=8)
 for ax in fig.get_axes():
     ax.label_outer()
 
+# Rimuovo assi per riqyadro non necessario
+ax2.axis('off') #--> questo non sapevo come farlo, aggiunto opo averlo visto dalle soluzioni
+plt.savefig('Blazars_4LAC_PL_index-SynPeak.png')
 plt.show()
