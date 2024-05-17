@@ -54,10 +54,10 @@ def all_reco(a1, a2): #a1 e a2 sono già ordinati temporalmente.
     return delta
 
 #PASSO 1
-M0_events=pd.read_csv('/home/nicola_polito/get-mcf-data/dati/classi/hit_times_M0.csv')
-M1_events=pd.read_csv('/home/nicola_polito/get-mcf-data/dati/classi/hit_times_M1.csv')
-M2_events=pd.read_csv('/home/nicola_polito/get-mcf-data/dati/classi/hit_times_M2.csv')
-M3_events=pd.read_csv('/home/nicola_polito/get-mcf-data/dati/classi/hit_times_M3.csv')
+M0_events=pd.read_csv('/home/nicola_polito/get-mcf-data/dati/ex5_data/hit_times_M0.csv')
+M1_events=pd.read_csv('/home/nicola_polito/get-mcf-data/dati/ex5_data/hit_times_M1.csv')
+M2_events=pd.read_csv('/home/nicola_polito/get-mcf-data/dati/ex5_data/hit_times_M2.csv')
+M3_events=pd.read_csv('/home/nicola_polito/get-mcf-data/dati/ex5_data/hit_times_M3.csv')
 
 
 print(M0_events.head())
@@ -67,7 +67,7 @@ print(M0_events.columns)
 fig1 = plt.figure()
 gs = fig1.add_gridspec(2,2, hspace=0.2, wspace=0)
 (ax1,ax2), (ax3, ax4) = gs.subplots()
-plt.suptitle(' Hit_time Istogram for different detectors ', fontsize=13, color = 'red')
+plt.suptitle(' Hit_time hitogram for different detectors ', fontsize=13, color = 'red')
 
 #M0
 M0_log_events= np.log10(M0_events['hit_time'])
@@ -110,7 +110,7 @@ plt.show()
 fig2 = plt.figure()
 gs = fig2.add_gridspec(2,2, hspace=0.2, wspace=0)
 (ax1,ax2), (ax3, ax4) = gs.subplots()
-plt.suptitle('$\Delta$ Hit_time Istogram for different detectors ', fontsize=13, color = 'red')
+plt.suptitle('$\Delta$ Hit_time histogram for different detectors ', fontsize=13, color = 'red')
 
 #M0
 delta_M0=Delta_ht(M0_events['hit_time'])
@@ -156,10 +156,13 @@ for ax in fig2.get_axes():
 
 plt.show()
 
+fig1.savefig('E5/hit_time hist.png')
+fig2.savefig('E5/delta_hit_time hist.png')
+
 '''
 INTERPRETAZIONE DEI GRAFICI:
 Gli istogrammi degli hit times per i 4 differenti moduli mostrano che ci sono molti eventi di hit verso la fine dell'acquisizione(in particolare intorno ai 0.7 s) 
-e pochi all'inizio della stessa e ciò è vero per tutti e 4 i moduli.
+ e pochi all'inizio della stessa e ciò è vero per tutti e 4 i moduli.
 Gli istogrammi della differenza tra due hit time successivi mostrano che vi sono degli eventi che hanno uno delta_hit molto piccolo (eventi molto vicini tra di loro), 
 mentre quasi tutti gli altri presentano una differenza temporale molto più significativa. In particolare, quasi nessun evento ha una distanza temporale dal successivo compresa tra 40 e 5600 ns 
 e, poichè gli hit appartenenti ad uno stesso evento saranno presumibilmente raggruppati nel tempo, mentre hit relativi ad eventi diversi avranno una separazione temporale maggiore,
@@ -197,10 +200,11 @@ print(len(delta_all)) #dovrebbe essere 40729
 delta_all_log= np.log10(delta_all)
 
 n, bis, p = plt.hist(delta_all_log, bins=35, range=(-0.5, 7.5), color='darkslategray', label='all_events')
-plt.suptitle('Instogram of $\Delta_t$ for all hits', color='red')
+plt.suptitle('Hinstogram of $\Delta_t$ for all hits', color='red')
 plt.xlabel('$Log(\Delta$ hit_time)', fontsize=10)
 plt.ylabel('Events', fontsize=10)
 plt.legend(fontsize=10)
 plt.show()
+plt.savefig('E5/delta_t for all hits.png')
 
 #Come stabilire la finestra temporale da applicare ai $\Delta t$ che permetta di raggruppare gli *Hit* dello stesso evento ma separi quelli apparteneti ad eventi differenti?

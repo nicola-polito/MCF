@@ -44,7 +44,7 @@ class Hit:
             ord=True
         return ord
         
-    def pos_detector(self, other): #orrdina 2 hit time in base al sensore dal quale sono stati rivelati(se sono relativi a 2 moduli diversi prevale il numero del modulo)
+    def pos_detector(self, other): #ordina 2 hit time in base al sensore dal quale sono stati rivelati (se sono relativi a 2 moduli diversi prevale il numero del modulo)
         ord=False
         if(self.id_module == other.id_module):
             ord = self.id_detector < other.id_detector

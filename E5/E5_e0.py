@@ -20,11 +20,12 @@ c=sum.somma_radici_n(nn)
 print('funzione somma radici:', c, '\n')
 d,e=sum.somma_prodotto(nn)
 print('funzione somma-prodotto: ', d, e,'\n')
-f=sum.potenze_di_i(nn, alpha = 3)
-print('funzione potenze di i:', f)
+f1=sum.potenze_di_i(nn)
+f2=sum.potenze_di_i(nn, alpha = 3)
+print('funzione potenze di i: {:} -- {:}'.format(f1,f2))
 
 '''
 E' stata creata automaticamente nella stessa cartella in cui sono presenti gli script relativi, la cartella "_pycache_" .
 La cartella “__pycache__” è una directory generata automaticamente da Python quando esegui uno script Python o importi un modulo.
-La sua funzione principale è archiviare file bytecode (.pyc) che contengono codice Python compilato
+La sua funzione principale è archiviare file bytecode (.pyc) che contengono codice Python compilato.
 '''
